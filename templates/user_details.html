@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <style>
+        /* CSS for movable side panel */
+        .one {
+            display: flex;
+            justify-content: space-between;
+        }
+        .two {
+            width: 200px; /* Set your desired width */
+            background-color: #f1f1f1;
+            border-right: 1px solid #ddd;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            text-align: center; /* Center align the content */
+        }
+        .contentbar {
+            margin: 0 auto; /* Center align the contentbar */
+            max-width: 600px; /* Adjust the maximum width as needed */
+        }
+        .contentbar p {
+            text-align: left; /* Left align paragraphs inside contentbar */
+        }
+        .move-panel {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: -20px;
+            font-size: 20px;
+        }
+        /* CSS for open panel */
+        .open-panel {
+            transform: translateX(-200px);
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff;">
+    <div class="one">
+        <div class="two" id="sidePanel">
+            <h1>Side Panel</h1>
+            <ul>
+                <li class="active"><a href="{{ url_for('index')}}">Home Page</a></li>
+                <li><a href="{{ url_for('display')}}">Dashboard</a></li>
+                <li><a href="{{ url_for('user_details')}}">Registered Details</a></li>
+                <li><a href="{{ url_for('update')}}">Details Update</a></li>
+                <!-- Hidden links for app details update -->
+                <li style="display: none;"><a href="{{ url_for('update1a')}}">Details Update Step 2</a></li>
+                <li style="display: none;"><a href="{{ url_for('update1b')}}">Details Update Step 3</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2')}}">Details Update Step 4</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2a')}}">Details Update Final Step</a></li>
+                <li><a href="{{ url_for('support')}}">Support</a></li>
+                <li><a href="{{ url_for('qa')}}">Q & A</a></li>
+                <li><a href="{{ url_for('login')}}">Log out</a></li>
+            </ul>
+            <div class="move-panel">&#x2192;</div> <!-- Right arrow for moving the panel -->
+        </div>
+        <div class="content">
+            <div class="topbar">
+                <h2>User Details</h2>                    
+            </div>
+            <div class="contentbar">
+                {% if user_data %}
+                <p><strong>Username:</strong> {{ user_data.username }}</p>
+                <p><strong>Password:</strong> {{ user_data.password }}</p>
+                <p><strong>Email:</strong> {{ user_data.email }}</p>
+                <p><strong>Organisation:</strong> {{ user_data.organisation }}</p>
+                <p><strong>Address:</strong> {{ user_data.address }}</p>
+                <p><strong>City:</strong> {{ user_data.city }}</p>
+                <p><strong>State:</strong> {{ user_data.state }}</p>
+                <p><strong>Country:</strong> {{ user_data.country }}</p>
+                <p><strong>Postal Code:</strong> {{ user_data.postalcode }}</p>
+                <p><strong>Phone:</strong> {{ user_data.phone }}</p>
+                <p><strong>Business Type:</strong> {{ user_data.business_type }}</p>
+                <p><strong>Company Size:</strong> {{ user_data.company_size }}</p>
+                <p><strong>App Purpose:</strong> {{ user_data.app_purpose }}</p>
+                <p><strong>Target Audience:</strong> {{ user_data.target_audience }}</p>
+                <p><strong>Platform:</strong> {{ user_data.platform }}</p>
+                <p><strong>Feature Requirements:</strong> {{ user_data.feature_requirements }}</p>
+                <p><strong>Design Preferences:</strong> {{ user_data.design_preferences }}</p>
+                <p><strong>Preferred Languages:</strong> {{ user_data.preferred_languages }}</p>
+                <p><strong>API Requirements:</strong> {{ user_data.api_requirements }}</p>
+                <p><strong>Data Storage:</strong> {{ user_data.data_storage }}</p>
+                <p><strong>Security Requirements:</strong> {{ user_data.security_requirements }}</p>
+                <p><strong>Theme Preferences:</strong> {{ user_data.theme_preferences }}</p>
+                <p><strong>Custom Fields:</strong> {{ user_data.custom_fields }}</p>
+                <p><strong>Notification Preferences:</strong> {{ user_data.notification_preferences }}</p>
+                {% else %}
+                <p>No data available.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Function to toggle the side panel
+        $(".move-panel").click(function() {
+            $("#sidePanel").toggleClass("open-panel");
+        });
+    });
+    </script>
+</body>
+</html>
+

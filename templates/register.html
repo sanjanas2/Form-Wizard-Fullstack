@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="registercontent" align="center">
+        <div class="registertop">
+            <h1>Register</h1>
+        </div>
+        <div class="registerbottom">
+            <form action="{{ url_for('register') }}" method="post" autocomplete="off">
+                <div class="msg">Enter your details here...</div>
+                <input type="text" name="username" placeholder="Enter Your Username" class="textbox" id="username" required><br><br>
+                <input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required><br><br>
+                <input type="email" name="email" placeholder="Enter Your Email ID" class="textbox" id="email" required><br><br>
+                <input type="text" name="organisation" placeholder="Enter Your Organisation" class="textbox" id="organisation" required><br><br>
+                <input type="text" name="address" placeholder="Enter Your Address" class="textbox" id="address" required><br><br>
+                <input type="text" name="city" placeholder="Enter Your City" class="textbox" id="city" required><br><br>
+                <input type="text" name="state" placeholder="Enter Your State" class="textbox" id="state" required><br><br>
+                <input type="text" name="country" placeholder="Enter Your Country" class="textbox" id="country" required><br><br>
+                <input type="text" name="postalcode" placeholder="Enter Your Postal Code" class="textbox" id="postalcode" required><br><br>
+                <input type="tel" name="phone" placeholder="Enter Your Phone Number" class="textbox" id="phone"><br><br>
+                <input type="text" name="business_type" placeholder="Enter Your Business Type" class="textbox" id="business_type"><br><br>
+                <input type="number" name="company_size" placeholder="Enter Company Size" class="textbox" id="company_size"><br><br>
+                <textarea name="app_purpose" placeholder="Enter App Purpose" class="textbox" id="app_purpose"></textarea><br><br>
+                <input type="text" name="target_audience" placeholder="Enter Target Audience" class="textbox" id="target_audience"><br><br>
+                <select name="platform" id="platform">
+                    <option value="iOS">iOS</option>
+                    <option value="Android">Android</option>
+                    <option value="Web">Web</option>
+                    <option value="All">All</option>
+                </select><br><br>
+                <textarea name="feature_requirements" placeholder="Enter Feature Requirements" class="textbox" id="feature_requirements"></textarea><br><br>
+                <textarea name="design_preferences" placeholder="Enter Design Preferences" class="textbox" id="design_preferences"></textarea><br><br>
+                <input type="file" name="logo_upload" id="logo_upload"><br><br>
+                <input type="text" name="preferred_languages" placeholder="Enter Preferred Languages" class="textbox" id="preferred_languages"><br><br>
+                <textarea name="api_requirements" placeholder="Enter API Access Requirements" class="textbox" id="api_requirements"></textarea><br><br>
+                <textarea name="data_storage" placeholder="Enter Data Storage Preferences" class="textbox" id="data_storage"></textarea><br><br>
+                <textarea name="security_requirements" placeholder="Enter Security Requirements" class="textbox" id="security_requirements"></textarea><br><br>
+                <textarea name="theme_preferences" placeholder="Enter Theme Preferences" class="textbox" id="theme_preferences"></textarea><br><br>
+                <textarea name="custom_fields" placeholder="Enter Custom Fields" class="textbox" id="custom_fields"></textarea><br><br>
+                <textarea name="notification_preferences" placeholder="Enter Notification Preferences" class="textbox" id="notification_preferences"></textarea><br><br>
+                <input type="submit" class="btn" value="Register">
+            </form>
+            <p class="worddark">Already have an account? <a class="worddark" href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <style>
+        /* CSS for movable side panel */
+        .one {
+            display: flex;
+            justify-content: space-between;
+        }
+        .two {
+            width: 200px; /* Set your desired width */
+            background-color: #f1f1f1;
+            border-right: 1px solid #ddd;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .move-panel {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: -20px;
+            font-size: 20px;
+        }
+        /* CSS for open panel */
+        .open-panel {
+            transform: translateX(-200px);
+        }
+        .contentbar div p {
+            text-align: center;
+        }
+        /* Image grid styling */
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between images */
+            justify-content: center;
+        }
+        .image-grid figure {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            width: calc(50% - 10px); /* Two images per row */
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .image-grid figure img {
+            width: 100%; /* Take full width of figure */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 300px; /* Limit maximum width of image */
+            transition: transform 0.3s ease;
+        }
+        .image-grid figure:hover img {
+            transform: scale(1.1); /* Increase size on hover */
+            box-shadow: 0 4px 8px rgba(23, 18, 186, 0.1); /* Shadow effect */
+        }
+        .image-grid .last {
+            width: 100%; /* Center the last image */
+            text-align: center;
+        }
+        .contentbar h2 {
+            margin-bottom: 20px; /* Space between questions */
+        }
+        .contentbar .extra-space {
+            margin-top: 40px; /* Extra space between specific sections */
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff;">
+    <div class="one">
+        <div class="two" id="sidePanel">
+            <h1>Side Panel</h1>
+            <ul>
+                <li class="active"><a href="{{ url_for('index')}}">Home Page</a></li>
+                <li><a href="{{ url_for('display')}}">Dashboard</a></li>
+                <li><a href="{{ url_for('user_details')}}">Registered Details</a></li>
+                <li><a href="{{ url_for('update')}}">Details Update</a></li>
+                <!-- Hidden links for app details update -->
+                <li style="display: none;"><a href="{{ url_for('update1a')}}">Details Update Step 2</a></li>
+                <li style="display: none;"><a href="{{ url_for('update1b')}}">Details Update Step 3</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2')}}">Details Update Step 4</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2a')}}">Details Update Final Step</a></li>
+                <li><a href="{{ url_for('support')}}">Support</a></li>
+                <li><a href="{{ url_for('qa')}}">Q & A</a></li>
+                <li><a href="{{ url_for('login')}}">Log out</a></li>
+            </ul>
+            <div class="move-panel">&#x2192;</div> <!-- Right arrow for moving the panel -->
+        </div>
+        <div class="content" align="center">
+            <div class="topbar">
+                <h2>Frequently Asked Queries..</h2>                    
+            </div><br><br>
+            <div class="contentbar">
+                <div>
+                    <h2>1. What ezto verify Offers?</h2>
+                    <p>a) Easily verify users with their biological features</p>
+                    <p>b) Confirm user's authenticity with FIDO/Passkeys</p>
+                    <p>c) Cross verify user's IDs with government database</p>
+                    <p>d) Ensure user's presence with Liveness Check</p>
+                </div>
+
+                <div class="extra-space">
+                    <h2>2. What are our integrations?</h2>
+                    <div class="image-grid">
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='ezto-verify-otp-less-verification-integration.svg') }}" alt="OTP-Less verification">
+                            <figcaption>OTP-Less verification</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='selfie-verification-integration.svg') }}" alt="Selfie Verification">
+                            <figcaption>Selfie Verification</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='id-verification.svg') }}" alt="ID Verification">
+                            <figcaption>ID Verification</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='Silent-Device-Verification.svg') }}" alt="Silent Device Verification">
+                            <figcaption>Silent Device Verification</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='ezto-verify-liveness.svg') }}" alt="Liveness Check">
+                            <figcaption>Liveness Check</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='Fido.svg') }}" alt="FIDO/Passkeys">
+                            <figcaption>FIDO/Passkeys</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='ezto-verify-biometric.svg') }}" alt="Biometric Verification">
+                            <figcaption>Biometric Verification</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='whatsapp-verification.svg') }}" alt="WhatsApp Verification">
+                            <figcaption>WhatsApp Verification</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='Azure-AD-B2C.svg') }}" alt="Azure AD B2C">
+                            <figcaption>Azure AD B2C</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="{{ url_for('custom_images', filename='secure-messaging integration.svg') }}" alt="Secure Messaging">
+                            <figcaption>Secure Messaging</figcaption>
+                        </figure>
+                        <figure class="last">
+                            <img src="{{ url_for('custom_images', filename='ezto-verify-proximity-verification-integration-icon.svg') }}" alt="Proximity Verification">
+                            <figcaption>Proximity Verification</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="extra-space">
+                    <h2>3. What are the benefits of using ezto verify?</h2>
+                    <p>a) ezto verify ensures compliance with regulations, strengthens security against fraud, enhances user’s trust, and provides a friction-less onboarding process.</p>
+                </div>
+
+                <div class="extra-space">
+                    <h2>4. Can ezto verify be integrated to an existing system?</h2>
+                    <p>a) Yes, ezto verify’s low-code verification can be easily integrated into an existing system, and can start to work in the next moment.</p>
+                </div>
+
+                <div class="extra-space">
+                    <h2>5. How much does it cost to verify the identity of a person?</h2>
+                    <p>a) ezto verify uses a wallet system to charge for the verification operations, and charges for each type of verification is different. Reach out to us through the contact us page for more details.</p>
+                </div>
+
+                <p>For further questions, <a href="{{ url_for('support') }}" style="font-weight: bold; color: #01070f;">contact us</a>!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to toggle the side panel
+            $(".move-panel").click(function() {
+                $("#sidePanel").toggleClass("open-panel");
+            });
+        });
+    </script>
+</body>
+</html>

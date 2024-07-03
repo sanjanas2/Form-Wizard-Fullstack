@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update - Page 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <style>
+        .image-gallery {
+            width: 240px;
+            justify-content: center; /* Center the images horizontally */
+            flex-wrap: wrap; /* Allow images to wrap to the next line if needed */
+            gap: 20px; /* Add space between images */
+            margin-top: 10px; 
+            flex-direction: column;
+            align-items: left;
+            margin-left: 40%;
+            text-align: center;
+        }
+
+        .update-section {
+            text-align: left; /* Align content within update-section to the left */
+        }
+
+        .image-gallery {
+            text-align: left; /* Ensure the gallery content is aligned to the left */
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px; /* Adjust margin as needed */
+        }
+        .btn {
+            margin-right: 10px; /* Adjust spacing between buttons */
+        }
+        /* CSS for movable side panel */
+        .one {
+            display: flex;
+            justify-content: space-between;
+        }
+        .two {
+            width: 200px; /* Set your desired width */
+            background-color: #f1f1f1;
+            border-right: 1px solid #ddd;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .move-panel {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: -20px;
+            font-size: 20px;
+        }
+        /* CSS for open panel */
+        .open-panel {
+            transform: translateX(-200px);
+        }
+    </style>
+</head>
+
+<body style="background-color: #ffffff;">
+    <div class="one">
+        <div class="two" id="sidePanel">
+            <h1>Side Panel</h1>
+            <ul>
+                <li class="active"><a href="{{ url_for('index')}}">Home Page</a></li>
+                <li><a href="{{ url_for('display')}}">Dashboard</a></li>
+                <li><a href="{{ url_for('user_details')}}">Registered Details</a></li>
+                <li><a href="{{ url_for('update')}}">Details Update</a></li>
+                <!-- Hidden links for app details update -->
+                <li style="display: none;"><a href="{{ url_for('update1a')}}">Details Update Step 2</a></li>
+                <li style="display: none;"><a href="{{ url_for('update1b')}}">Details Update Step 3</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2')}}">Details Update Step 4</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2a')}}">Details Update Final Step</a></li>
+                <li><a href="{{ url_for('support')}}">Support</a></li>
+                <li><a href="{{ url_for('qa')}}">Q & A</a></li>
+                <li><a href="{{ url_for('login')}}">Log out</a></li>
+            </ul>
+            <div class="move-panel">&#x2192;</div> <!-- Right arrow for moving the panel -->
+        </div>
+        <div class="content">
+            <div class="contentbar">
+                <h1>Answer some questions for your app</h1>
+                <form id="updateForm" method="POST" action="{{ url_for('update')}}">
+                    <div class="msg">1) What should be the App Name that should be displayed to User?</div>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="{{ url_for('custom_images', filename='eztoimage.png')}}" alt="ID Configuration" class="gallery-img">
+                        </div>
+                        <div class="answer-input">
+                            <input type="text" id="appName" name="appName" placeholder="Enter Answer" required>
+                        </div>
+                    </div>
+                    <div class="msg">2) What should be App Bundle ID? (eg: io.ezto.verify)</div>
+                    <div class="answer-input">
+                        <input type="text" id="bundleId" name="bundleId" placeholder="Enter Answer" required>
+                    </div>
+                    <!-- Hidden submit button -->
+                    <input type="submit" value="submit">
+                </form>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextPage()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to toggle the side panel
+            $(".move-panel").click(function() {
+                $("#sidePanel").toggleClass("open-panel");
+            });
+        });
+    </script>
+
+    <script>
+        function nextPage() {
+            document.getElementById('updateForm').submit();
+            // Navigate to the next page (update1a.html)
+            window.location.href = "{{ url_for('update1a')}}";
+        }
+    </script>
+</body>
+</html>

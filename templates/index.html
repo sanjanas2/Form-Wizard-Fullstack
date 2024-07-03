@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <style>
+        /* CSS for movable side panel */
+        .one {
+            display: flex;
+            justify-content: space-between;
+        }
+        .two {
+            width: 200px; /* Set your desired width */
+            background-color: #f1f1f1;
+            border-right: 1px solid #ddd;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .move-panel {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: -20px;
+            font-size: 20px;
+        }
+        /* CSS for open panel */
+        .open-panel {
+            transform: translateX(-200px);
+        }
+    </style>
+</head>
+
+<body style="background-color: #ffffff;">
+    <div class="one">
+        <div class="two" id="sidePanel">
+            <h1>Side Panel</h1>
+            <ul>
+                <li class="active"><a href="{{ url_for('index')}}">Home Page</a></li>
+                <li><a href="{{ url_for('display')}}">Dashboard</a></li>
+                <li><a href="{{ url_for('user_details')}}">Registered Details</a></li>
+                <li><a href="{{ url_for('update')}}">Details Update</a></li>
+                <!-- Hidden links for app details update -->
+                <li style="display: none;"><a href="{{ url_for('update1a')}}">Details Update Step 2</a></li>
+                <li style="display: none;"><a href="{{ url_for('update1b')}}">Details Update Step 3</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2')}}">Details Update Step 4</a></li>
+                <li style="display: none;"><a href="{{ url_for('update2a')}}">Details Update Final Step</a></li>
+                <li><a href="{{ url_for('support')}}">Support</a></li>
+                <li><a href="{{ url_for('qa')}}">Q & A</a></li>
+                <li><a href="{{ url_for('login')}}">Log out</a></li>
+            </ul>
+            <div class="move-panel">&#x2192;</div> <!-- Right arrow for moving the panel -->
+        </div>
+        <div class="content" align="center">
+            <div class="topbar">
+                <h2></h2>                    
+            </div><br><br>
+            <div class="contentbar">
+                <div class="msg"></div>
+                <img src="{{ url_for('custom_images', filename='images.png')}}" class="logo" alt="Logo">
+                <p>Simplify Multiple ID Verifications with One API... !</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to toggle the side panel
+            $(".move-panel").click(function() {
+                $("#sidePanel").toggleClass("open-panel");
+            });
+        });
+    </script>
+</body>
+</html>

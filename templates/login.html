@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <style>
+        .msg {
+            margin-top: 2px;
+        }
+    </style>   
+</head>
+<body>
+    <div class="logincontent" align="center">
+        <div class="logintop">
+            <h1>Login</h1>
+        </div>
+        <br><br><br><br>
+        <div class="loginbottom">
+            <form action="{{ url_for('login') }}" method="post" autocomplete="off">
+                <div class="msg">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="flash">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    Please enter your login details below...
+                </div>
+                <input type="text" name="username" placeholder="Enter Your Username" class="textbox" id="username" required>
+                <br><br>
+                <input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required>
+                <br><br><br>
+                <input type="submit" class="btn" value="Login">
+            </form>
+            <br><br>
+            <p class="worddark">New to this page? <a class="worddark" href="{{ url_for('register') }}">Register here</a></p>
+        </div>
+    </div>
+</body>
+</html>
