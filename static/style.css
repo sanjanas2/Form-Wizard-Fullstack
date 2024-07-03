@@ -1,0 +1,406 @@
+body {
+    background: linear-gradient(to right, white, #2863e1),
+                url('path/to/your/image.jpg');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: center;
+}
+.msg {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.registercontent {
+    margin: 0 auto;
+    height: 720px;
+    width: 400px;
+    background-color: white;
+    border-radius: 100px;
+    border: 1px solid #2863e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.registertop {
+    width: calc(100% + 40px);
+    margin: -20px -20px 20px -20px;
+    padding: 20px;
+    background-color: #2863e1;
+    color: white;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+}
+
+.registerbottom {
+    width: calc(100% + 40px);
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.textbox, .btn, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.textbox {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn {
+    background-color: #2863e1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.worddark a {
+    color: #2863e1;
+}
+
+ 
+::placeholder {
+    color: grey;
+    opacity: 1;
+    font-style: oblique;
+    font-weight: bold;
+}
+ 
+.btn {
+    padding: 10px 40px;
+    background-color:	#2863e1; 
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+ 
+.worddark{
+    color: black;
+    font-style: oblique;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+.wordlight{
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+}
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+ 
+.one{
+    display: flex;
+    position: relative;
+}
+ 
+.one .two{
+     width: 225px;
+    height: 100%;
+    background: 	#2863e1;
+    padding: 30px 0px;
+    position: fixed;
+}
+ 
+.one .two h1{
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: oblique;
+    font-weight: bold;
+}
+         
+.one .two h2{
+    color:white;
+    text-align: center;
+}
+         
+.one .two .active{
+     background: #2863e1;
+}
+ 
+.one .two ul li{
+    text-align: center;
+    padding: 15px;
+    border-bottom: 0.1px solid  white;
+    border-top: 0.1px solid  white;
+}    
+ 
+.one .two ul li a{
+    color:white;
+    display: block;
+}
+ 
+.one .two ul li a .side{
+    width: 40px;
+    box-align:center;
+}
+ 
+.one .content{
+    width: 100%;
+    margin-left: 200px;
+}
+ 
+.one .content .topbar{
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, white, #2863e1);
+    color: rgb(5, 3, 5);
+}
+         
+.one .content .contentbar{
+    margin: auto;
+    color: linear-gradient(to right, white, #2863e1);
+}
+ 
+.one .content .contentbar h1{
+    color: #2863e1;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.logo {
+    width: 700px; /* Fixed width for the image */
+    align-items: center; /* Center vertically */
+    height: 70vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.one {
+    display: flex;
+    position: relative;
+}
+.two {
+    width: 225px;
+    height: 100%;
+    background: #2863e1;
+    padding: 30px 0px;
+    position: fixed;
+}
+.two h1 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: oblique;
+    font-weight: bold;
+}
+.two ul {
+    padding: 0;
+    list-style-type: none;
+}
+.two ul li {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 0.1px solid rgb(88, 4, 62);
+    border-top: 0.1px solid rgb(88, 4, 62);
+}
+.two ul li a {
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+.content {
+    width: calc(100% - 225px); /* Adjusted width to accommodate the fixed sidebar */
+    margin-left: 225px; /* Match the width of the sidebar */
+    padding: 20px;
+    text-align: center;
+}
+.topbar {
+    background: white;
+    padding: 20px;
+    color: rgb(5, 3, 5);
+}
+
+.contentbar img.logo {
+    width: 700px; /* Fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure image behaves like a block element */
+    margin: 0 auto 20px; /* Center the image horizontally and add space below */
+}
+.contentbar p {
+    color: #072668;
+    font-size: 20px;
+    line-height: 2;
+    text-align: right;
+}
+
+/* Add this to your existing CSS file */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.one {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.logo {
+    animation: zoomIn 2s ease-in-out;
+}
+
+/* Add this to your existing CSS file */
+.two ul li a {
+    color: white; /* Initial color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.two ul li a:hover {
+    color: black; /* Color on hover */
+}
+
+.btn:hover {
+    transform: translateY(-5px); /* Move the button upwards */
+    background-color: #2863e1; /* Optional: change background color on hover */
+}
+
+/* Additional styles for the text boxes */
+.textbox {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding */
+    margin: 5px 0 15px 0; /* Margin */
+    display: inline-block; /* Inline-block display */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Box-sizing */
+}
+
+
+/* Hover effect for the .worddark class */
+.worddark:hover {
+    color: #2863e1; /* Change color to blue on hover */
+}
+
+/* Styles for the login content */
+.logincontent {
+    width: 300px; /* Fixed width for the login content */
+    margin: 50px auto; /* Center align the login content and add margin at the top */
+    padding: 20px; /* Padding */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 10px 0px #000000; /* Box shadow */
+    background-color: #f9f9f9; /* Background color */
+}
+
+.logintop {
+    height: 60px;
+    width: 100px;
+    background-color: #2863e1; 
+    color: white;
+    text-align: center; /* Center align the text */
+}
+
+.loginbottom {
+    text-align: center; /* Center align the text */
+}
+/* Styles for the contentbar */
+.contentbar {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000000;
+    margin-top: 20px;
+}
+
+/* Styles for the image gallery within the contentbar */
+.image-gallery {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    flex-wrap: wrap; /* Allow images to wrap to the next line if needed */
+    gap: 20px; /* Add space between images */
+    margin-top: 10px; 
+    flex-direction: column;
+    align-items: left;
+    margin-left: 40%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Styles for each gallery item */
+.gallery-item {
+    text-align: center; /* Center the text below each image */
+    max-width: 200px; /* Set a maximum width for each gallery item */
+}
+
+/* Styles for individual images */
+.gallery-img {
+    width: 100%; /* Make the image fill the width of its container */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid white; /* Add a border to the images */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 0px 10px #2863e1; /* Add a subtle shadow */
+    transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+.gallery-img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+/* Styles for the descriptions */
+.gallery-item p {
+    margin-top: 10px; /* Add some space between the image and the text */
+    color: #17181a; /* Set the text color */
+    font-size: 18px; /* Set the font size */
+    line-height: 2.0; /* Set the line height */
+}
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-back {
+    background-color: #6c757d;
+}
